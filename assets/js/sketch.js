@@ -7,20 +7,19 @@ var minimum;
 var maximum;
 var sortSpeed;
 var barSpred;
-var x;
 
 var sortMethod;
 
 
 function setup() {
-	x = 0;
+
 	noStroke();
-	barSpred = 3;
+
 	sortSpeed = 2;
 	minimum = 50;
 	maximum = 300;
-	elementCount = 50;
-	barSpred = (1/elementCount);
+	elementCount = 100;
+	barSpred = (3);
 	canvasWidth = windowWidth;
 	canvasHeight = windowHeight/2;
 	for (let i = 0; i < elementCount; i++)
@@ -39,30 +38,9 @@ function swap(array, a, b)
 		array[a] -= array[b]; // a becomes b;
 }
 
-function bubbleSort(i)
-{
 
-}
-function insertionSortStep(index, sorted)
-{
-		
-}
-
-function isSorted()
-{
-	
-
-}
 function draw() {
-
-	background(0);
-	barSpred = 0;
-	stroke(255);
-	for (let i = 0; i < values.length; i++)
-	{
-		rect(x, 100, 100, canvasHeight - values[i]);
-		x+=barSpred;	
-	}
+	/*
 	for (let i = 0; i < values.length; i++)
 	{
 		for (let n = 0; n < values.length-i-1; n++)
@@ -72,6 +50,17 @@ function draw() {
 				swap(values, values[n], values[n+1]);
 			}
 		}	
+	}*/
+
+	background(0);
+	stroke(255);		
+	var barWidth = (canvasWidth / (elementCount) - 1);
+	var x = 0;
+	barSpred = 1;          
+	for (let i = 0; i < values.length; i++)
+	{
+		rect(x, canvasHeight, barWidth - barSpred, values[i] - canvasHeight);
+		x+=(barSpred + barWidth);
 	}
 
 }
